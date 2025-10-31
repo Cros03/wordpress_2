@@ -6582,3 +6582,19 @@ a.to-the-top > * {
 		width: calc(100% - 8rem);
 	}
 }
+.read-more-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #0073aa;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #005f8d;
+    text-decoration: none;
+}
