@@ -187,33 +187,30 @@ get_header();
 
 			<article <?php post_class('post-list-item'); ?> id="post-<?php the_ID(); ?>">
 
+				<?php if (has_post_thumbnail()): ?>
+					<div class="post-list-thumb">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail('medium'); ?>
+						</a>
+					</div>
+				<?php endif; ?>
+
 				<div class="post-list-date">
 					<span class="post-list-day"><?php echo get_the_date('d'); ?></span>
 					<span class="post-list-month"><?php echo 'THÁNG ' . get_the_date('m'); ?></span>
 				</div>
 
 				<div class="post-list-content">
-
 					<h2 class="post-list-title">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 					</h2>
-
 					<div class="post-list-excerpt">
 						<?php
-						$content = get_the_excerpt(); // Lấy phần mô tả gốc
-						$content = wp_strip_all_tags($content); // Xóa HTML để cắt
-						$limit = 100; // Giới hạn ký tự
-						if (mb_strlen($content) > $limit) {
-							$short = mb_substr($content, 0, $limit) . '...';
-						} else {
-							$short = $content;
-						}
-
+						$content = wp_strip_all_tags(get_the_excerpt());
+						$limit = 100;
+						$short = mb_strlen($content) > $limit ? mb_substr($content, 0, $limit) . '...' : $content;
 						echo '<p>' . esc_html($short) . '</p>';
 						?>
-
 						<a href="<?php the_permalink(); ?>" class="read-more-btn">Đọc tiếp →</a>
 					</div>
 				</div>
