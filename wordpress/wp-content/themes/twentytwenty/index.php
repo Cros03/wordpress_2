@@ -203,20 +203,20 @@ get_header();
 					<div class="post-list-excerpt">
 						<?php
 						$content = get_the_excerpt(); // Lấy phần mô tả gốc
-						$content = wp_strip_all_tags($content); // Xóa HTML để cắt chuẩn
+						$content = wp_strip_all_tags($content); // Xóa HTML để cắt
 						$limit = 100; // Giới hạn ký tự
 						if (mb_strlen($content) > $limit) {
 							$short = mb_substr($content, 0, $limit) . '...';
 						} else {
 							$short = $content;
 						}
-						echo esc_html($short);
+
+						echo '<p>' . esc_html($short) . '</p>';
 						?>
+
+						<a href="<?php the_permalink(); ?>" class="read-more-btn">Đọc tiếp →</a>
 					</div>
-
-
 				</div>
-
 			</article>
 
 			<?php
