@@ -23,53 +23,100 @@
 	<?php wp_head(); ?>
 
 	<style>
+		/* --- 1. Wrapper chung cho thanh tiêu đề --- */
+		.header-titles-wrapper {
+			display: flex;
+			align-items: center;
+		}
+
+		/* --- 2. Tiêu đề (Logo/Chữ) --- */
+		.header-titles {
+			margin-right: 0;
+			flex-shrink: 0;
+			/* Ngăn tiêu đề bị co lại */
+		}
+
+		/* --- 3. Nút Home --- */
+		.custom-home-button-wrapper {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			padding: 0;
+			flex-shrink: 0;
+			/* Ngăn nút Home bị co lại */
+		}
+
+		.home-link {
+			display: block;
+			background-color: transparent;
+			color: #333;
+			font-size: 20px;
+			text-decoration: none;
+			padding: 18px 25px;
+			font-weight: 600;
+			line-height: 1;
+			height: 100%;
+			margin: 0;
+			border-right: none;
+			border-left: 1px solid #e0e0e0;
+		}
+
+		/* --- 4. Khối Tìm kiếm (Đã sửa lỗi) --- */
 		.custom-search-inline {
 			display: flex;
-			align-items: stretch;
-			/* Đảm bảo các mục con kéo dài để lấp đầy chiều cao */
+			align-items: center;
 			margin-left: 15px;
+			border: 1px solid #ccc;
+			height: 38px;
+			flex: 1;
+			/* Cho phép khối tìm kiếm co giãn lấp đầy không gian */
+			min-width: 150px;
+			/* Chiều rộng tối thiểu */
 		}
 
 		.header-inline-search {
 			display: flex;
-			gap: 0;
-			/* Đảm bảo không có khoảng cách giữa ô tìm kiếm và nút submit */
-			border: 1px solid #ddd;
-			/* Đặt border bao quanh cả search field và submit */
+			/* Làm cho input và button nằm ngang */
+			height: 100%;
+			width: 100%;
 		}
 
 		.header-inline-search .search-field {
-			padding: 5px 10px;
+			padding: 0 10px;
 			border: none;
-			/* Xóa border của riêng search field */
 			outline: none;
-			/* Xóa outline khi focus */
+			height: 100%;
+			box-sizing: border-box;
+			font-size: 14px;
+			color: #555;
+			flex: 1;
+			/* Cho phép ô input co giãn */
+			min-width: 100px;
+			/* Chiều rộng tối thiểu của riêng ô input */
 		}
 
 		.header-inline-search .search-submit {
-			padding: 5px 12px;
+			padding: 0 15px;
 			cursor: pointer;
 			background-color: #e02863;
-			/* Màu hồng đậm cho nút Submit */
 			color: white;
 			border: none;
-			/* Xóa border */
 			height: 100%;
-			/* Đảm bảo nút kéo dài theo chiều cao của search field */
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			/* Loại bỏ khoảng cách gap nếu có */
-			margin-left: 0;
+			font-size: 14px;
+			box-sizing: border-box;
+			flex-shrink: 0;
+			/* Ngăn nút submit bị co lại */
 		}
 
-		/* CSS MỚI CHO NÚT ACCOUNT */
+		/* --- 5. Nút Account (Đã khôi phục đầy đủ) --- */
 		.account-toggle-wrapper {
 			margin-left: 20px;
 			display: flex;
 			align-items: center;
 			position: relative;
-			/* Giúp căn chỉnh biểu tượng mũi tên */
 		}
 
 		.account-link {
@@ -77,39 +124,30 @@
 			align-items: center;
 			text-decoration: none;
 			color: #333;
-			/* Màu chữ tối hơn, giống trong hình */
 			font-size: 14px;
 			line-height: 1;
 		}
 
-		/* Điều chỉnh biểu tượng để có nền tròn và màu tối */
 		.account-icon {
 			display: inline-flex;
 			margin-right: 5px;
-			/* Tạo hình tròn */
 			background-color: #555;
-			/* Màu nền xám đậm */
 			border-radius: 50%;
 			width: 26px;
-			/* Kích thước hình tròn */
 			height: 26px;
 			align-items: center;
 			justify-content: center;
 		}
 
-		/* Đảm bảo SVG (biểu tượng người) có màu trắng để nổi bật trên nền xám */
 		.account-icon svg {
 			fill: white;
 			width: 16px;
-			/* Điều chỉnh kích thước biểu tượng */
 			height: 16px;
 		}
 
-		/* Thêm mũi tên thả xuống (dropdown arrow) bằng cách sử dụng pseudo-element */
 		.account-link .toggle-text {
 			display: inline-block;
 			margin-right: 15px;
-			/* Tạo không gian cho mũi tên */
 			position: relative;
 		}
 
@@ -123,53 +161,25 @@
 			border-left: 3px solid transparent;
 			border-right: 3px solid transparent;
 			border-top: 4px solid #333;
-			/* Tạo mũi tên trỏ xuống */
-			transform: translateY(-50%);
-		}
 
-		/* CSS MỚI CHO NÚT HOME (Đã chỉnh sửa) */
-		.header-titles-wrapper {
-			display: flex;
-			/* Đảm bảo các phần tử con (tiêu đề, Home, tìm kiếm) nằm trên cùng một hàng */
-			align-items: center;
-		}
+			_account-icon svg {
+				fill: white;
+				width: 16px;
+				height: 16px;
+			}
 
-		.custom-home-button-wrapper {
-			/* Đảm bảo nút Home nằm ngay cạnh tiêu đề/logo */
-			display: flex;
-			align-items: center;
-			height: 100%;
-			/* Đảm bảo chiều cao phù hợp */
-			padding: 0;
-		}
+			.account-link .toggle-text {
+				display: inline-block;
+				margin-right: 15px;
+				position: relative;
+			}
 
-		.home-link {
-			display: block;
-			
-			/* Xóa nền: Đặt thành trong suốt */
-			color: #333;
-			/* Màu chữ */
-			text-decoration: none;
-			padding: 18px 25px;
-			/* Điều chỉnh padding để phù hợp với hình ảnh */
-			font-weight: 600;
-			line-height: 1;
-			height: 100%;
-			/* Loại bỏ/giảm khoảng cách lề */
-			margin: 0;
-			
-			/* Xóa đường kẻ phân cách */
-			border-left: 1px solid #e0e0e0;
-			/* Thêm đường kẻ trái để giống hình mới */
-		}
-
-	
-
-		/* Tinh chỉnh header-titles để dịch chuyển logo sát lề */
-		.header-titles {
-			margin-right: 0;
-			/* Xóa lề mặc định nếu có */
-		}
+			.account-link .toggle-text::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				m: translateY(-50%);
+			}
 	</style>
 </head>
 
