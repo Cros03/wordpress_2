@@ -32,7 +32,10 @@
         </div>
 
     </div>
-	<div class="section-inner">
+	
+</article>
+
+<div class="section-inner">
 		<?php
 		wp_link_pages(
 			array(
@@ -81,5 +84,4 @@
 		<?php
 	}
 	?>
-</article>
 

@@ -6682,3 +6682,46 @@ a.to-the-top > * {
     line-height: 1.8;
     text-align: justify;
 }
+/* ---- Làm phần meta, navigation, comment full width nhưng nội dung căn giữa ---- */
+.section-inner--full {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: #fff; /* hoặc transparent nếu muốn nền xuyên suốt */
+    padding: 40px 0;
+    box-sizing: border-box;
+    border-top: 1px solid #eee; /* đường kẻ nếu muốn chia phần */
+}
+
+/* phần nội dung bên trong căn giữa */
+.section-inner__inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+/* căn giữa phần navigation */
+.section-inner__inner .post-nav-links,
+.section-inner__inner .post-meta,
+.section-inner__inner .navigation,
+.section-inner__inner .comments-area {
+    text-align: center;
+}
+
+/* phần comment full width + chia tách rõ */
+.comments-wrapper.section-inner--full {
+    background: #fafafa;
+    border-top: 1px solid #ddd;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .section-inner__inner {
+        padding: 0 20px;
+        max-width: 95%;
+    }
+}
