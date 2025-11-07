@@ -88,69 +88,118 @@ if ( ( is_single() || is_page() ) && ( comments_open() || get_comments_number() 
 ?>
 
 <style>
-	/* ---- BẮT ĐẦU CSS SỬA LỖI ---- */
+    /* CENTER MAIN CONTENT */
+    .post-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
 
-.date-circle {
-    /* Tạo vòng tròn vàng */
-    background-color: #fde24f;
-    border-radius: 50%;
-    width: 75px;  /* Kích thước vòng tròn */
-    height: 75px; /* Kích thước vòng tròn */
-    
-    /* !! SỬA LỖI QUAN TRỌNG: */
-    display: flex;             /* Bắt buộc: Xếp các khối con (wrapper và year) nằm ngang */
-    flex-direction: row;       /* Bắt buộc: Hướng là hàng ngang */
-    flex-wrap: nowrap;         /* Bắt buộc: Không cho phép "Năm" nhảy xuống dòng */
-    
-    /* Căn chỉnh */
-    justify-content: center;   /* Căn giữa theo chiều ngang */
-    align-items: center;       /* Căn giữa theo chiều dọc */
-    
-    /* Định dạng chung */
-    font-weight: bold;
-    color: #333;
-    padding: 5px;
-    box-sizing: border-box;
-    overflow: hidden;          /* Ẩn nếu nội dung bị tràn */
-}
+    /* header: title trái, vòng ngày nằm phải */
+    .post-header-custom {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+    }
 
-/* KHỐI 1: Chứa Ngày và Tháng */
-.date-circle .day-month-wrapper {
-    display: flex;
-    flex-direction: column;    /* Xếp Ngày (trên) và Tháng (dưới) theo chiều dọc */
-    align-items: center;       /* Căn giữa Ngày và Tháng */
-    line-height: 1.1;
-    text-align: center;
-}
+    /* title chiếm không gian còn lại, giữ kích thước hợp lý */
+    .post-title-custom {
+        margin: 0;
+        font-size: 1.8rem; /* ↑ tăng kích thước tiêu đề */
+        font-weight: 700;
+        flex: 1 1 auto;
+        text-align: left;
+    }
 
-/* Định dạng NGÀY (ở trên) */
-.date-circle .day {
-    font-size: 1.6em;          /* Điều chỉnh cỡ chữ nhỏ lại một chút */
-    position: relative;
-    padding-bottom: 2px;       /* Tạo khoảng cách cho gạch ngang */
-}
+    /* vòng ngày (bên phải) - to và nổi bật */
+    .date-circle {
+        background-color: #fde24f;
+        border-radius: 50%;
+        width: 76px;  /* ↓ thu nhỏ */
+        height: 76px; /* ↓ thu nhỏ */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #222;
+        padding: 6px;
+        box-sizing: border-box;
+        overflow: hidden;
+        order: 2;
+        margin-left: auto;
+    }
 
-/* Gạch ngang (chỉ dài bằng số ngày) */
-.date-circle .day::after {
-    content: '';
-    position: absolute;
-    bottom: 0;                 /* Nằm ngay dưới cùng của Ngày */
-    left: 10%;                 /* Bắt đầu từ 10% */
-    width: 80%;                /* Gạch ngang dài 80% chữ */
-    height: 1px;
-    background-color: #333;
-}
+    /* KHỐI: Chứa Ngày và Tháng (theo cột) */
+    .date-circle .day-month-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1;
+        text-align: center;
+    }
 
-/* Định dạng THÁNG (ở dưới) */
-.date-circle .month {
-    font-size: 1.6em;          /* Cùng cỡ chữ với Ngày */
-    margin-top: 2px;
-}
+    .date-circle .day {
+        font-size: 28px; /* ↓ nhỏ hơn để cân đối vòng tròn */
+        position: relative;
+        padding-bottom: 4px;
+    }
 
-/* KHỐI 2: Định dạng NĂM (bên phải) */
-.date-circle .year {
-    font-size: 1.6em;          /* Cùng cỡ chữ với Ngày/Tháng */
-    margin-left: 5px;          /* Khoảng cách nhỏ bên trái */
-}
-/* ---- KẾT THÚC CSS SỬA LỖI ---- */
+    .date-circle .day::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 8%;
+        width: 84%;
+        height: 2px;
+        background-color: #222;
+    }
+
+    .date-circle .month {
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    .date-circle .year {
+        font-size: 12px;
+        margin-left: 4px;
+        opacity: 0.9;
+    }
+
+    /* nội dung bài viết giữ kích thước chuẩn */
+    .post-content-custom {
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    /* Responsive: nếu màn nhỏ, đặt date-circle cạnh tiêu đề hoặc thu nhỏ */
+    @media (max-width: 600px) {
+        .post-header-custom {
+            flex-wrap: wrap;
+        }
+        .post-title-custom {
+            flex-basis: 100%;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .date-circle {
+            width: 64px;
+            height: 64px;
+            padding: 5px;
+            margin-left: 0;
+        }
+        .date-circle .day {
+            font-size: 22px;
+        }
+        .date-circle .month,
+        .date-circle .year {
+            font-size: 11px;
+        }
+        .post-content-custom {
+            font-size: 15px;
+        }
+    }
 </style>
