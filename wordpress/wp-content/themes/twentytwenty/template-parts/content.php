@@ -202,4 +202,5 @@ if ( ( is_single() || is_page() ) && ( comments_open() || get_comments_number() 
             font-size: 15px;
         }
     }
+    
 </style>

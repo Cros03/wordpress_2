@@ -17,8 +17,9 @@ get_header();
 
 	<section class="content-area">
 		<?php
-		if (have_posts()) :
-			while (have_posts()) : the_post(); ?>
+		if (have_posts()):
+			while (have_posts()):
+				the_post(); ?>
 				<article class="single-post">
 					<div class="post-header">
 
@@ -40,7 +41,7 @@ get_header();
 							</span>
 						</div>
 					</div>
-
+					<div class="post-divider-arrow"></div>
 					<div class="post-content">
 						<?php the_content(); ?>
 					</div>
@@ -49,7 +50,7 @@ get_header();
 						<span>✍️ Tác giả: <?php the_author(); ?></span>
 					</div>
 				</article>
-		<?php endwhile;
+			<?php endwhile;
 		endif;
 		?>
 	</section>
@@ -84,11 +85,11 @@ get_header();
 			echo '</div>'; // End latest-date-inner
 			echo '</span>'; // End latest-post-date-circle
 			echo '</div>'; // End latest-post-meta-box
-
+		
 			echo '<div class="latest-post-content">';
 			echo '<a href="' . get_permalink($p['ID']) . '">' . esc_html($p['post_title']) . '</a>';
 			echo '</div>'; // End latest-post-content
-
+		
 			echo '</div>';
 		}
 		?>
@@ -150,7 +151,7 @@ get_header();
 		border: none;
 	}
 
-	
+
 	.sidebar-title {
 		font-size: 1.5em;
 		margin-bottom: 15px;
@@ -159,7 +160,6 @@ get_header();
 	}
 
 	.post-header {
-		border-bottom: 2px solid #ddd;
 		padding-bottom: 15px;
 		margin-bottom: 20px;
 		display: flex;
@@ -465,6 +465,60 @@ get_header();
 
 	.left-sidebar .category-list li a:hover {
 		color: #0073aa;
+	}
+
+	.post-header {
+		/* border-bottom: 2px solid #ddd; */
+		/* <-- XÓA DÒNG NÀY */
+		padding-bottom: 15px;
+		/* margin-bottom: 20px; */
+		/* <-- XÓA DÒNG NÀY */
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.post-header {
+		/* border-bottom: 2px solid #ddd; */
+		/* <-- XÓA DÒNG NÀY */
+		padding-bottom: 15px;
+		/* margin-bottom: 20px; */
+		/* <-- XÓA DÒNG NÀY */
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.post-divider-arrow {
+		position: relative;
+		height: 2px;
+		/* <-- Quay lại đường kẻ mỏng */
+		background-color: #ddd;
+		/* Màu đường kẻ */
+		margin-bottom: 20px;
+		border-radius: 0;
+		/* Bỏ bo góc */
+	}
+
+	.post-divider-arrow::after {
+		content: '';
+		position: absolute;
+		width: 14px;
+		/* Kích thước của chữ V */
+		height: 14px;
+		/* Kích thước của chữ V */
+		background: #fff;
+		left: 10%;
+		/* Vị trí bạn muốn */
+		top: -6px;
+		/* Đẩy nó lên để tâm nằm trên đường kẻ */
+		transform: translateX(-50%) rotate(45deg);
+		border-bottom: 2px solid #ddd;
+		border-right: 2px solid #ddd;
 	}
 </style>
 
