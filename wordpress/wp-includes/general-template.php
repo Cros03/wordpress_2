@@ -4770,12 +4770,12 @@ function paginate_links( $args = '' ) {
 		}
 		$link .= $args['add_fragment'];
 
-		$page_links[] = sprintf(
-			'<a class="next page-numbers" href="%s">%s</a>',
-			/** This filter is documented in wp-includes/general-template.php */
-			esc_url( apply_filters( 'paginate_links', $link ) ),
-			$args['next_text']
-		);
+		// $page_links[] = sprintf(
+		// 	'<a class="next page-numbers" href="%s">%s</a>',
+		// 	/** This filter is documented in wp-includes/general-template.php */
+		// 	esc_url( apply_filters( 'paginate_links', $link ) ),
+		// 	$args['next_text']
+		// );
 	endif;
 
 	switch ( $args['type'] ) {
