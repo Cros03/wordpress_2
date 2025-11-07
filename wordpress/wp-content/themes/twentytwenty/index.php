@@ -461,138 +461,237 @@ get_header();
 
 	/* === BÀI VIẾT MỚI DƯỚI FOOTER === */
 	/* 1. KHUNG BỌC NGOÀI */
-.bai-viet-moi-duoi {
-	margin-top: 30px;
-	padding-top: 20px;
-	border-top: 2px solid #eee;
-	display: grid;
-	grid-template-columns: 1fr 2fr 1fr;
-	gap: 20px;
-}
+	.bai-viet-moi-duoi {
+		margin-top: 30px;
+		padding-top: 20px;
+		border-top: 2px solid #eee;
+		display: grid;
+		grid-template-columns: 1fr 2fr 1fr;
+		gap: 20px;
+	}
 
-/* 2. KHỐI CHÍNH GIỮA */
-.bai-viet-moi-duoi .bai-viet-moi-content-wrapper {
-	grid-column: 2 / 3;
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	gap: 25px;
-	align-items: baseline;
-}
+	/* 2. KHỐI CHÍNH GIỮA */
+	.bai-viet-moi-duoi .bai-viet-moi-content-wrapper {
+		grid-column: 2 / 3;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 25px;
+		align-items: baseline;
+	}
 
-/* 3. TIÊU ĐỀ "Bài viết mới nhất" */
-.bai-viet-moi-duoi .sidebar-title {
-	font-size: 1.6em; /* tăng từ 1.4em lên */
-	font-weight: bold;
-	color: #222;
-	margin-top: 0;
-	margin-bottom: 22px;
-	width: 100%;
-	border-bottom: none;
-}
+	/* 3. TIÊU ĐỀ "Bài viết mới nhất" */
+	.bai-viet-moi-duoi .sidebar-title {
+		font-size: 1.6em;
+		/* tăng từ 1.4em lên */
+		font-weight: bold;
+		color: #222;
+		margin-top: 0;
+		margin-bottom: 22px;
+		width: 100%;
+		border-bottom: none;
+	}
 
-/* 4. DANH SÁCH UL */
-.bai-viet-moi-duoi .recent-posts-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
+	/* 4. DANH SÁCH UL */
+	.bai-viet-moi-duoi .recent-posts-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 
-/* 5. MỖI MỤC BÀI VIẾT */
-.bai-viet-moi-duoi .news-item {
-	position: relative;
-	padding-left: 25px;
-	margin-bottom: 28px;
-}
+	/* 5. MỖI MỤC BÀI VIẾT */
+	.bai-viet-moi-duoi .news-item {
+		position: relative;
+		padding-left: 25px;
+		margin-bottom: 28px;
+	}
 
-/* 6. CHẤM TRÒN */
-.bai-viet-moi-duoi .news-item::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: -3px;
-	width: 14px;
-	height: 14px;
-	background-color: #fff;
-	border: 3px solid #3498db;
-	border-radius: 50%;
-	box-sizing: border-box;
-	z-index: 1;
-}
+	/* 6. CHẤM TRÒN */
+	.bai-viet-moi-duoi .news-item::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: -3px;
+		width: 14px;
+		height: 14px;
+		background-color: #fff;
+		border: 3px solid #3498db;
+		border-radius: 50%;
+		box-sizing: border-box;
+		z-index: 1;
+	}
 
-/* ĐƯỜNG NỐI DỌC */
-.news-item::after {
-	content: '';
-	position: absolute;
-	left: 6px;
-	top: -15px;
-	bottom: -22px;
-	width: 2px;
-	background-color: #ddd;
-	z-index: 0;
-}
+	/* ĐƯỜNG NỐI DỌC */
+	.news-item::after {
+		content: '';
+		position: absolute;
+		left: 6px;
+		top: -15px;
+		bottom: -22px;
+		width: 2px;
+		background-color: #ddd;
+		z-index: 0;
+	}
 
-/* 7. HEADER CỦA BÀI VIẾT */
-.bai-viet-moi-duoi .news-header {
-	overflow: hidden;
-	margin-bottom: 6px;
-	line-height: 1.4;
-}
+	/* 7. HEADER CỦA BÀI VIẾT */
+	.bai-viet-moi-duoi .news-header {
+		overflow: hidden;
+		margin-bottom: 6px;
+		line-height: 1.4;
+	}
 
-/* 8. TIÊU ĐỀ BÀI VIẾT */
-.bai-viet-moi-duoi .news-header a {
-	text-decoration: none;
-	color: #0073aa;
-	font-weight: bold;
-	font-size: 1.15em; /* tăng nhẹ tiêu đề bài viết */
-	float: left;
-}
+	/* 8. TIÊU ĐỀ BÀI VIẾT */
+	.bai-viet-moi-duoi .news-header a {
+		text-decoration: none;
+		color: #0073aa;
+		font-weight: bold;
+		font-size: 1.15em;
+		/* tăng nhẹ tiêu đề bài viết */
+		float: left;
+	}
 
-.bai-viet-moi-duoi .news-header a:hover {
-	text-decoration: underline;
-}
+	.bai-viet-moi-duoi .news-header a:hover {
+		text-decoration: underline;
+	}
 
-/* 9. NGÀY ĐĂNG */
-.bai-viet-moi-duoi .news-date {
-	float: right;
-	color: #999;
-	font-size: 0.95em;
-	padding-top: 3px;
-}
+	/* 9. NGÀY ĐĂNG */
+	.bai-viet-moi-duoi .news-date {
+		float: right;
+		color: #999;
+		font-size: 0.95em;
+		padding-top: 3px;
+	}
 
-/* 10. NỘI DUNG RÚT GỌN */
-.bai-viet-moi-duoi .news-excerpt {
-	color: #444;
-	font-size: 1em; /* tăng từ 0.95em lên 1em */
-	line-height: 1.7;
-	clear: both;
-}
+	/* 10. NỘI DUNG RÚT GỌN */
+	.bai-viet-moi-duoi .news-excerpt {
+		color: #444;
+		font-size: 1em;
+		/* tăng từ 0.95em lên 1em */
+		line-height: 1.7;
+		clear: both;
+	}
 
+	/* --- PHẦN XEM NHIỀU (kiểu báo điện tử hoàn chỉnh) --- */
+	/* --- PHẦN XEM NHIỀU (kiểu báo điện tử hoàn chỉnh) --- */
+
+	/* Tiêu đề "Xem nhiều" */
+	.layout-archive h2 {
+		font-size: 18px;
+		font-weight: bold;
+		border-bottom: 3px solid #000;
+		/* Dùng 3px để đường kẻ dày hơn */
+		display: inline-block;
+		padding-bottom: 4px;
+		margin-bottom: 0;
+		/* Đặt lại margin để liền với lưới */
+		margin-top: 0;
+		/* Đảm bảo căn chỉnh top */
+	}
+
+	/* Khung lưới 2 cột */
+	.popular-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		/* Bắt đầu đường viền ngoài */
+		border-left: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+		/* Dùng `margin-top` để tạo khoảng cách giữa tiêu đề và lưới */
+		margin-top: 10px;
+	}
+
+	/* Mỗi ô tin tức */
+	.popular-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		padding: 10px 10px;
+		/* Tăng padding để giãn nội dung */
+		/* Viền phải và viền trên cho mỗi ô */
+		border-right: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+		/* Loại bỏ style cũ (nếu có) */
+		border-bottom: none;
+	}
+
+	/* Số thứ tự */
+	.popular-number {
+		font-size: 26px;
+		/* Tăng cỡ chữ số cho nổi bật */
+		font-weight: bold;
+		color: #000;
+		width: 28px;
+		/* Giữ độ rộng cố định */
+		flex-shrink: 0;
+		text-align: left;
+		/* Căn lề trái theo hình */
+		line-height: 1.1;
+	}
+
+	/* Tiêu đề */
+	.popular-title {
+		color: #222;
+		font-size: 15px;
+		/* Điều chỉnh cỡ chữ cho tiêu đề */
+		line-height: 1.4;
+		text-decoration: none;
+		font-weight: 500;
+	}
+
+	.popular-title:hover {
+		color: #0073aa;
+		text-decoration: underline;
+	}
+
+	/* Responsive: gộp 1 cột khi màn hình nhỏ */
+	@media (max-width: 768px) {
+		.popular-grid {
+			grid-template-columns: 1fr;
+			border-right: none;
+			/* Bỏ viền phải ngoài */
+		}
+
+		.popular-item {
+			border-left: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+			/* Thêm lại viền phải cho từng item */
+		}
+	}
+
+	/* Responsive: gộp 1 cột khi màn hình nhỏ */
+	@media (max-width: 768px) {
+		.popular-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.popular-item {
+			border-left: none;
+		}
+	}
 </style>
 
 <main id="site-content">
 	<div class="main-layout">
 		<!-- Cột trái: Xem nhiều -->
+		<!-- Cột trái: chỉ hiển thị ở Home và Search -->
 		<aside class="layout-archive">
-			<?php if (is_search()): ?>
-				<h2>Xem nhiều</h2>
 
+			<?php if (is_search()): ?>
+				<!-- 🔹 Khi đang ở trang tìm kiếm -->
+				<h2>Trang mới nhất</h2>
 				<?php
-				// Lấy 4 bài viết có nhiều bình luận nhất (có thể thay bằng meta 'views' nếu muốn)
-				$popular_args = array(
+				$latest_args = array(
 					'posts_per_page' => 4,
-					'orderby' => 'comment_count',
+					'orderby' => 'date',
 					'order' => 'DESC',
 					'post_status' => 'publish',
 					'ignore_sticky_posts' => true,
 				);
-
-				$popular_posts = new WP_Query($popular_args);
+				$latest_posts = new WP_Query($latest_args);
 				?>
 
-				<?php if ($popular_posts->have_posts()): ?>
+				<?php if ($latest_posts->have_posts()): ?>
 					<div class="popular-list">
-						<?php while ($popular_posts->have_posts()):
-							$popular_posts->the_post(); ?>
+						<?php while ($latest_posts->have_posts()):
+							$latest_posts->the_post(); ?>
 							<div class="popular-item">
 								<a href="<?php the_permalink(); ?>" class="popular-thumb">
 									<?php if (has_post_thumbnail()): ?>
@@ -610,15 +709,42 @@ get_header();
 						wp_reset_postdata(); ?>
 					</div>
 				<?php else: ?>
-					<p>Không có bài viết phổ biến.</p>
+					<p>Không có bài viết mới.</p>
 				<?php endif; ?>
 
-			<?php else: ?>
-				<h2>Archive</h2>
-				<ul>
-					<?php wp_get_archives(array('type' => 'monthly', 'limit' => 6)); ?>
-				</ul>
+			<?php elseif (is_home()): ?>
+				<!-- 🔹 Khi ở trang chủ -->
+				<h2>Xem nhiều</h2>
+				<div class="popular-grid">
+					<?php
+					$popular_args = array(
+						'posts_per_page' => 8,
+						'orderby' => 'comment_count',
+						'order' => 'DESC',
+						'post_status' => 'publish',
+						'ignore_sticky_posts' => true,
+					);
+
+					$popular_posts = new WP_Query($popular_args);
+
+					if ($popular_posts->have_posts()):
+						$i = 1;
+						while ($popular_posts->have_posts()):
+							$popular_posts->the_post(); ?>
+							<div class="popular-item">
+								<span class="popular-number"><?php echo $i++; ?></span>
+								<a href="<?php the_permalink(); ?>" class="popular-title"><?php the_title(); ?></a>
+							</div>
+						<?php endwhile;
+						wp_reset_postdata();
+					else:
+						echo '<p>Không có bài viết phổ biến.</p>';
+					endif;
+					?>
+				</div>
+
 			<?php endif; ?>
+
 		</aside>
 
 
@@ -677,10 +803,22 @@ get_header();
 				while (have_posts()) {
 					the_post(); ?>
 					<article <?php post_class('post-list-item'); ?> id="post-<?php the_ID(); ?>">
+						<!-- 🖼️ Ảnh đại diện bài viết -->
+						<div class="post-list-thumb" style="margin-right:20px;">
+							<a href="<?php the_permalink(); ?>">
+								<?php if (has_post_thumbnail()): ?>
+									<?php the_post_thumbnail('medium', ['style' => 'width:180px;height:auto;border-radius:6px;']); ?>
+								<?php else: ?>
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/default-thumb.jpg"
+										alt="<?php the_title_attribute(); ?>" style="width:180px;height:auto;border-radius:6px;">
+								<?php endif; ?>
+							</a>
+						</div>
 						<div class="post-list-date">
 							<span class="post-list-day"><?php echo get_the_date('d'); ?></span>
 							<span class="post-list-month"><?php echo 'THÁNG ' . get_the_date('m'); ?></span>
 						</div>
+
 						<div class="post-list-content">
 							<h2 class="post-list-title">
 								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
