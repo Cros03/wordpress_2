@@ -13,35 +13,29 @@
 
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class('single-post-custom'); ?>>
 
-	<?php
+    <div class="post-inner">
 
-	get_template_part( 'template-parts/entry-header' );
+        <div class="post-header-custom">
+            <div class="date-circle">
+                <span class="day"><?php echo get_the_date('d'); ?></span>
+                <span class="month"><?php echo get_the_date('m'); ?></span>
+                <span class="year"><?php echo get_the_date('y'); ?></span>
+            </div>
 
-	if ( ! is_search() ) {
-		get_template_part( 'template-parts/featured-image' );
-	}
+            <h1 class="post-title-custom"><?php the_title(); ?></h1>
+        </div>
 
-	?>
+        <div class="post-content-custom">
+            <?php the_content(); ?>
+        </div>
 
-	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
+    </div>
+	
+</article>
 
-		<div class="entry-content">
-
-			<?php
-			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
-				the_excerpt();
-			} else {
-				the_content( __( 'Continue reading', 'twentytwenty' ) );
-			}
-			?>
-
-		</div><!-- .entry-content -->
-
-	</div><!-- .post-inner -->
-
-	<div class="section-inner">
+<div class="section-inner">
 		<?php
 		wp_link_pages(
 			array(
@@ -91,4 +85,3 @@
 	}
 	?>
 
-</article><!-- .post -->
